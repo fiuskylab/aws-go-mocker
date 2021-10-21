@@ -17,6 +17,7 @@ func (m *mockSQS) SendMessage(in *sqs.SendMessageInput) (*sqs.SendMessageOutput,
 	})
 	return &sqs.SendMessageOutput{}, nil
 }
+
 func (m *mockSQS) ReceiveMessage(in *sqs.ReceiveMessageInput) (*sqs.ReceiveMessageOutput, error) {
 	if len(m.messages[*in.QueueUrl]) == 0 {
 		return &sqs.ReceiveMessageOutput{}, nil
